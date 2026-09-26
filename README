@@ -13,12 +13,8 @@ ui.
 the backend, when fetched, returns a list of services and their status in the
 following format:
 
-{
-	"services": [
-		{
-			"name": "service_name",
-			"url": "service_url",
-			"status": 200
-		}
-	]
-}
+[
+	"name": "service_name",
+	"url": "service_url",
+	"status": 200
+]
