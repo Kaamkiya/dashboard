@@ -2,27 +2,79 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>dashboard</title>
 
     <style>
-      html, body {
-        background: #1f1f1f;
-        color: #f2f2f2;
-        font-family: monospace;
-        font-size: 1.4em;
-      }
-      a {
-        color: #f2f2ff;
-      }
-      li.good::marker {
-        color: #52a447;
-      }
-      li.bad::marker {
-        color: #e30022;
-      }
-      li.unknown::marker {
-        color: #ccc;
-      }
+html, body  {
+  background: #111315;
+  color: #e6e6e6;
+  font-family: monospace;
+  font-size: 1rem;
+  margin: 0;
+  padding: 1em;
+}
+
+a  {
+  color: #f2f2ff;
+}
+
+ul  {
+  display: grid;
+  margin: 0;
+  padding: 0;
+}
+
+li  {
+  display:block;
+  width: 100%;
+  border: 1px solid aliceblue;
+  border-radius: 0.5em;
+  margin-bottom: 1em;
+  position: relative;
+  box-sizing: border-box;
+  min-height: 3rem;
+  align-content: center;
+  padding-left: 3rem;
+  padding-right: 0;
+  background: #191c1f;
+}
+li:hover {
+  background: #202428;
+}
+
+
+li::before  {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  width: 0.75rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+li.good::before  {
+  background: #52c41a;
+}
+
+li.bad::before  {
+  background: #ff3b4d;
+}
+
+li.unknown::before  {
+  background: #777777;
+}
+
+@media (width > 600px) {
+  body {
+    width: 40%;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+}
     </style>
   </head>
   <body>
