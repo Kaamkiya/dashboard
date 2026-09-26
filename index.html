@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>dashboard</title>
+
+    <style>
+      html, body {
+        background: #1f1f1f;
+        color: #f2f2f2;
+        font-family: monospace;
+        font-size: 1.4em;
+      }
+      a {
+        color: #f2f2ff;
+      }
+      li.good::marker {
+        color: #52a447;
+      }
+      li.bad::marker {
+        color: #e30022;
+      }
+      li.unknown::marker {
+        color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>dashboard</h1>
+    <ul></ul>
+    <script>
+      const ul = document.querySelector("ul");
+
+      const update = async () => {
+        const res = await fetch("/data");
+        console.log(res);
+        const data = await res.json();
+        console.log(data);
+
+        let newHTML = "";
+        for (const p of data) {
+          let className = "unknown";
+          if (200 <= p.status && p.status < 400) {
+            className = "good";
+          } else if (p.status != 0) {
+            className = "bad";
+          }
+          newHTML += `<li class="${className}"><a href="${p.url}">${p.name}</a></li>`
+        }
+        ul.innerHTML = newHTML;
+
+        setTimeout(() => requestAnimationFrame(update), 10000);
+      }
+      update();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+dashboard
+=========
+
+this is a very basic program to create a simple montoring dashboard for
+services.
+
+backend is written in pure go using only the stdlib.
+frontend is contained in index.html.
+
+the frontend fetches data from the backend every so often and renders it in the
+ui.
+
+the backend, when fetched, returns a list of services and their status in the
+following format:
+
+{
+	"services": [
+		{
+			"name": "service_name",
+			"url": "service_url",
+			"status": 200
+		}
+	]
+}
