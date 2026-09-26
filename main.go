@@ -1,14 +1,15 @@
 package main
 
 import (
-	_ "embed"
+	"embed"
 	"encoding/json/v2"
 	"log"
 	"net/http"
+	"io/fs"
 )
 
-//go:embed index.html
-var homePage []byte
+//go:embed static/*
+var siteContent embed.FS
 
 type service struct {
 	Name string `json:"name"`
@@ -48,12 +49,11 @@ func main() {
 		}
 	})
 
-	mux.HandleFunc("GET /", func(w http.ResponseWriter, req *http.Request) {
-		if _, err := w.Write([]byte(homePage)); err != nil {
-			log.Println(err.Error())
-			w.WriteHeader(http.StatusInternalServerError)
-		}
-	})
+	siteContentFS, err := fs.Sub(siteContent, "static")
+	if err != nil {
+		panic(err)
+	}
+	mux.Handle("GET /", http.FileServer(http.FS(siteContentFS)))
 
 	http.ListenAndServe(":29278", mux)
 }

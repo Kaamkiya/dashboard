@@ -7,13 +7,23 @@
     <title>dashboard</title>
 
     <style>
+@font-face {
+  font-family: Quicksand;
+  src: url(/quicksand.ttf);
+}
+
 html, body  {
   background: #111315;
   color: #e6e6e6;
-  font-family: monospace;
+  font-family: Quicksand, monospace;
+  font-weight: bold;
   font-size: 1rem;
   margin: 0;
   padding: 1em;
+}
+
+h1 {
+  text-align: center;
 }
 
 a  {
@@ -39,9 +49,10 @@ li  {
   padding-left: 3rem;
   padding-right: 0;
   background: #191c1f;
+  transition: background 0.5s;
 }
 li:hover {
-  background: #202428;
+  background: #303438;
 }
 
 
