@@ -21,6 +21,7 @@ func main() {
 	services := []service{
 		service{Name: "kaamkiya.dev", Url: "https://kaamkiya.dev/"},
 		service{Name: "Git",          Url: "https://git.kaamkiya.dev/"},
+		service{Name: "Trilium",      Url: "http://192.168.2.196:13809"},
 	}
 
 	mux := http.NewServeMux()
