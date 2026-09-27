@@ -114,7 +114,7 @@ li.unknown::before  {
           } else if (p.status != 0) {
             className = "bad";
           }
-          newHTML += `<li class="${className}"><a href="${p.url}">${p.name}</a></li>`
+          newHTML += `<li class="${className}"><a target="_blank" href="${p.url}">${p.name}</a></li>`
         }
         ul.innerHTML = newHTML;
 
