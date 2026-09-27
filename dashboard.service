@@ -1,0 +1,13 @@
+[Unit]
+Description=Dashboard Monitor
+After=network.target
+
+[Service]
+User=XXX_REPLACE_ME
+Type=simple
+Restart=always
+RestartSec=4
+ExecStart=/opt/dashboard/dashboard
+
+[Install]
+WantedBy=multi-user.target
