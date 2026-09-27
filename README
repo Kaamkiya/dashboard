@@ -1,6 +1,8 @@
 dashboard
 =========
 
+See https://dash.kaamkiya.dev/ for a demo.
+
 this is a very basic program to create a simple montoring dashboard for
 services.
 
@@ -14,7 +16,9 @@ the backend, when fetched, returns a list of services and their status in the
 following format:
 
 [
-	"name": "service_name",
-	"url": "service_url",
-	"status": 200
+	{
+		"name": "service_name",
+		"url": "service_url",
+		"status": 200
+	}
 ]
