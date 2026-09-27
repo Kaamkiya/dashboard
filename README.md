@@ -1,5 +1,4 @@
-dashboard
-=========
+# dashboard
 
 See https://dash.kaamkiya.dev/ for a demo.
 
@@ -15,6 +14,7 @@ ui.
 the backend, when fetched, returns a list of services and their status in the
 following format:
 
+```
 [
 	{
 		"name": "service_name",
@@ -22,3 +22,4 @@ following format:
 		"status": 200
 	}
 ]
+```
