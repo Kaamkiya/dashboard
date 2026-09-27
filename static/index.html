@@ -109,7 +109,7 @@ li.unknown::before  {
         let newHTML = "";
         for (const p of data) {
           let className = "unknown";
-          if (200 <= p.status && p.status < 400) {
+          if (200 <= p.status && p.status < 400 || p.status == 429) {
             className = "good";
           } else if (p.status != 0) {
             className = "bad";
@@ -118,7 +118,7 @@ li.unknown::before  {
         }
         ul.innerHTML = newHTML;
 
-        setTimeout(() => requestAnimationFrame(update), 10000);
+        setTimeout(() => requestAnimationFrame(update), 60*1000);
       }
       update();
     </script>
